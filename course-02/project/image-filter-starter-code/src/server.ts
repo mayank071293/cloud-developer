@@ -37,7 +37,6 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
       if(!image_url){
         return res.status(400).send("bad request!");
       }
-      console.log(image_url);
       const path = await filterImageFromURL(image_url);
       res.sendFile(path);
       res.on('finish', () => deleteLocalFiles([path]));
